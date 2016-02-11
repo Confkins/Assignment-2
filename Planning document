@@ -1,0 +1,53 @@
+Planning Document for "Super Soviet Socialist Plumber Hero Brothers"!
+
+The super special aesthetic choices:
+
+Opressive Red colour scheme, especially for "Karl the hero plumber"
+Initially in Russian using the "Soviet Font", then it changes to English
+in the same font.
+We are all brothers in communism, comrade. Hence the name.
+Enemies are the tools of capatilism such as wealth and pop music.
+The big boss is Capitalist pig, a pig in a top hat.
+
+Gameplay choices:
+
+Will essentially play like Mario, with the character fixed on the centre
+of the screen and only really able to move up and down by jummping 
+or falling. The terrain will be the real movement.
+Enemies will move in predetermined patterns and will be certain death
+unless stomped on or an ability is used on them (Like righteous Soviet
+Hammer of Doom).
+
+The terrain will ideally be procedurally generated but that may have to
+be curtailed so that the terrain can be navigable. The terrain will
+essentially be a line that is seperated into equally spaced chunks.
+Each of these chunks can be of a seperated height or the same height.
+The terrain will move across the screen and so give the illusion of
+movement for the main character. The terrain will also be the main source
+of collision and will define the end of the gravity vector that will be
+used to give all entities weight. This will also facilitate the jump 
+function and the "pit of death" function. If the player drops below
+the screen, a life is lost and the game restarts.
+
+There will also be collectables and power ups to augment the 
+experience for the player. It will add an extra demension to gameplay
+(figuratively of course, it's still gonna be 2D) and another way 
+to calculate HI SCORES.
+
+The enemies will be on a fixed pattern based on the terrain
+(for instance, an enemy may move in a loop over a section of
+level terrain and turn when elevation or depression is approached).
+
+I aim for several iterations of this game, each major iteration 
+implementing new features. 
+
+For the first iteration, I will implement the foundational elements
+such as terrain, movement, jumping, basic aesthetics.
+
+The second iteration will add the enemies and the ending of the game.
+
+The third iteration will add items and the abilities.
+
+The fourth and final iteration will add the finalised style of the game
+including sounds and sprites, HI SCORES, menu.
+
