@@ -9,7 +9,7 @@ class Characters
   }
   void soviet_hero()
   {
-    hero = loadImage("Soviethero.jpg");
+    hero = loadImage("Soviethero.png");
     image(hero,0,0);
   }
 }
