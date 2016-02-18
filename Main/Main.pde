@@ -10,6 +10,6 @@ void setup()
 Characters Characters;
 void draw()
 {
-  background(100,100,0);
+  background(230,20,20);
   Characters.soviet_hero();
 }
