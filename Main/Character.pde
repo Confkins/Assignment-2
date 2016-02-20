@@ -6,8 +6,8 @@ class Characters
   PImage hero;
   Characters()
   {
-    char_size = 60;//It's a square, and helps to fix positioning
-    gravity = new PVector (0,1);
+    char_size = 59;//It's a square, and helps to fix positioning
+    gravity = new PVector (0,3);
     pos = new PVector (width/2-(char_size/2),height/2);
   }
   void soviet_hero()
