@@ -17,9 +17,16 @@ class Terrain
       moving. It will hopefully be randomized in the finished
       version, but may have to be curtailed for playability.
     */
-    
+    randomization();    
   }
-  randomization()
+  void randomization()
   {
+    int i = 10;
+    boolean chunk_min = false;
+    
+    while(i < 300)
+    {
+      if(chunk_min)
+    }
   }
 }
