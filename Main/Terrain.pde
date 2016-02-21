@@ -21,23 +21,30 @@ class Terrain
   }
   void randomization()
   {
+    int chunklength;
     int i = 10;
     int y_set;
     int old_y;
-    int jump_height;
+    int jump_height = 100;
     boolean chunk_min = false;
     y_set = chunks[10][0];
     
     while(i < 300)
     {
-      if(chunk_min)
+      chunks[i][0] = random(chunks[i-1][0],jump_height);
+      if(!chunk_min)
       {
         i++;
+        chunks[i][0] = chunks[i-1][0];
         chunk_min = true;
       }
       else
       {
-        
+         chunklength = random(1,5);
+         if(chunklength == 1)
+         {
+           
+         } 
       }
     }
   }
