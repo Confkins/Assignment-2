@@ -13,4 +13,5 @@ void draw()
 {
   background(230,20,20);
   Characters.soviet_hero();
+  Terrain.ground();
 }

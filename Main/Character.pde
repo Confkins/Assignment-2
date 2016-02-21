@@ -16,7 +16,7 @@ class Characters
   }
   void soviet_hero()
   {
-    println(pos.y);
+    //println(pos.y);
     hero = loadImage("Soviethero.png");
     image(hero,pos.x,pos.y);
     if(!jumped)
