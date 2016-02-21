@@ -27,6 +27,7 @@ First we need to make the blocks.
 We'll take a chunk, give it a value. Take the next chunk, give it the same
 value. Now we have a minimum block of two. Now here's the fun part.
 Chance!
+
 Now since we want to trend to order and not chaos, we will make it
 a 2/3rds chance to have the same value as the one before.
 This is liable to change but I think it will provide what we're looking for

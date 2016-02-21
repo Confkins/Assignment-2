@@ -10,7 +10,7 @@ class Characters
     char_size = 59;//It's a square, and helps to fix positioning
     gravity = new PVector (0,3);
     pos = new PVector (width/2-(char_size/2),height/2);
-    jump = new PVector (0,-5);
+    jump = new PVector (0,-4);
   }
   void soviet_hero()
   {
@@ -32,6 +32,5 @@ class Characters
         pos.add(jump);
       }
     }
-    key = 's';
   }
 }

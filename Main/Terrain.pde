@@ -26,6 +26,7 @@ class Terrain
     int old_y;
     int jump_height;
     boolean chunk_min = false;
+    y_set = chunks[10][0];
     
     while(i < 300)
     {
@@ -33,7 +34,6 @@ class Terrain
       {
         i++;
         chunk_min = true;
-        random(1,2);
       }
       else
       {
