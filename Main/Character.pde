@@ -28,7 +28,7 @@ class Characters extends Terrain
         if(pos.y < (height-chunks[i][0])-char_size)
         {
           pos.add(gravity);
-          //Placeholder Gravity until terrain object created
+         //Gravity is based on terrain around it
         }
       }
      }

@@ -3,6 +3,8 @@ class Terrain
   int[][] chunks = new int[300][2];
   boolean check = false;
   int scale = 50;
+  PVector movement;
+  PVector move;
   Terrain()
   {
     for(int i=0; i < 10; i++)
@@ -13,10 +15,11 @@ class Terrain
     {
       chunks[i][1] = i+1;
     }
+    move = new PVector(5,0);
+    movement = new PVector(0,0);
   }
   void ground()
   {
-
     /*
       The idea here is to seperate the ground into
       easy workable chunks so varied terrain is easier
@@ -34,8 +37,9 @@ class Terrain
     {
       println(chunks[i][0]);
       fill(0,0,255);
-      rect(chunks[i][1]*scale,height-chunks[i][0],scale,600);
+      rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],50,600);
     }
+    keyPressed();
   }
   void randomization()
   {
@@ -81,4 +85,13 @@ class Terrain
       i++;
     }//end while
   }//end method
-}//end class
+  
+  void keyPressed()
+  {
+    if(key == 'd')
+    {
+      movement.sub(move);
+      key = 'q';
+    }
+  }
+}//end clasa
