@@ -43,6 +43,7 @@ class Terrain
   }
   void randomization()
   {
+    int pit_edge;
     int pit_chance = 0;
     int chunklength;
     int i = 10;
@@ -61,6 +62,17 @@ class Terrain
       }
       else
       {
+        pit_chance = (int) random(1,10);
+        if(pit_chance == 5)
+        {
+          pit_edge = chunk[i-1][0];
+          for(int j = 0; j < 3; j++)
+          {
+            chunk[i][0] = -5;
+            i++;
+          }
+          chunk[i][0] = pit_edge;
+        }
         chunklength = (int) random(1,4);
         if(chunklength == 2)  
         {
