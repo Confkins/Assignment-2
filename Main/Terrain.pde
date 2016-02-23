@@ -15,6 +15,7 @@ class Terrain
   }
   void ground()
   {
+    int scale = 50;
     /*
       The idea here is to seperate the ground into
       easy workable chunks so varied terrain is easier
@@ -22,15 +23,17 @@ class Terrain
       moving. It will hopefully be randomized in the finished
       version, but may have to be curtailed for playability.
     */
-    
     if(check == false)
     {
     randomization();  
     check = true;
-    }
+    }//So ground only generated once
+       
     for(int i = 0; i < 300; i++)
     {
       println(chunks[i][0]);
+      fill(0,0,255);
+      rect(chunks[i][1]*scale,height-chunks[i][0],scale,600);
     }
   }
   void randomization()
