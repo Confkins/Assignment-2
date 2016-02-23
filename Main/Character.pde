@@ -19,11 +19,10 @@ class Characters extends Terrain
     //println(pos.y);
     hero = loadImage("Soviethero.png");
     image(hero,pos.x,pos.y);
-    if(!jumped)
-    {
+    
      for(int i = 0; i < 299; i++)
      {
-      if(pos.x > chunks[i][1]*scale && pos.x < chunks[i+1][1]*scale)
+      if(pos.x > (chunks[i][1]*scale) + movement.x && pos.x < (chunks[i+1][1]*scale) + movement.x)
       {
         if(pos.y < (height-chunks[i][0])-char_size)
         {
@@ -32,11 +31,8 @@ class Characters extends Terrain
         }
       }
      }
-    }
-    if(pos.y > 540)
-    {
       keyPressed();
-    }
+
   }
   void keyPressed()
   {
