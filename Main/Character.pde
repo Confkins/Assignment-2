@@ -20,18 +20,11 @@ class Characters extends Terrain
     hero = loadImage("Soviethero.png");
     image(hero,pos.x,pos.y);
     
-     for(int i = 0; i < 299; i++)
-     {
-      if(pos.x > (chunks[i][1]*scale) + movement.x && pos.x < (chunks[i+1][1]*scale) + movement.x)
-      {
-        if(pos.y < (height-chunks[i][0])-char_size)
-        {
-          pos.add(gravity);
-         //Gravity is based on terrain around it
-        }
-      }
-     }
-      keyPressed();
+
+    pos.add(gravity);
+
+ 
+    keyPressed();
 
   }
   void keyPressed()

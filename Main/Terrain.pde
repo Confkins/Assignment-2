@@ -1,6 +1,6 @@
 class Terrain
 { 
-  int[][] chunks = new int[300][2];
+  int[][] chunks = new int[320][2];
   boolean check = false;
   int scale = 50;
   PVector movement;
@@ -9,13 +9,13 @@ class Terrain
   {
     for(int i=0; i < 10; i++)
     {
-      chunks[i][0] = 50;//sets first ten values to 50 for regular start
+      chunks[i][0] = 70;//sets first ten values to 70 for regular start
     }
     for(int i = 0; i < 300; i++)
     {
       chunks[i][1] = i+1;
     }
-    move = new PVector(5,0);
+    move = new PVector(20,0);
     movement = new PVector(0,0);
   }
   void ground()
@@ -37,7 +37,7 @@ class Terrain
     {
       println(chunks[i][0]);
       fill(0,0,255);
-      rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],50,600);
+      rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],50,800);
     }
     keyPressed();
   }
@@ -50,7 +50,7 @@ class Terrain
     int up_down;
     int y_set;
     int  old_y;
-    int jump_height = 30;
+    int jump_height = 50;
     boolean chunk_min = false;
     
     while(i < 300)
@@ -77,8 +77,8 @@ class Terrain
         chunklength = (int) random(1,4);
         if(chunklength == 2)  
         {
-          up_down = (int) random(1,4);
-          if(up_down == 2 || up_down == 3)
+          up_down = (int) random(1,6);
+          if(up_down == 2 || up_down == 3 || up_down == 4)
           {
             chunks[i][0] = (int) random(chunks[i-1][0],(chunks[i-1][0])+jump_height);
             chunk_min = false;
