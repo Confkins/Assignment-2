@@ -65,13 +65,14 @@ class Terrain
         pit_chance = (int) random(1,10);
         if(pit_chance == 5)
         {
-          pit_edge = chunk[i-1][0];
+          pit_edge = chunks[i-1][0];
           for(int j = 0; j < 3; j++)
           {
-            chunk[i][0] = -5;
+            chunks[i][0] = -5;
             i++;
           }
-          chunk[i][0] = pit_edge;
+          chunks[i][0] = pit_edge;
+          i++;
         }
         chunklength = (int) random(1,4);
         if(chunklength == 2)  
