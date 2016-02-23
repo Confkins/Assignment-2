@@ -47,7 +47,6 @@ class Terrain
     
     while(i < 300)
     {
-      //chunks[i][0] = random(chunks[i-1][0],jump_height);
       if(chunk_min == false)
       {
         chunks[i][0] = chunks[i-1][0];
@@ -61,12 +60,12 @@ class Terrain
           up_down = (int) random(1,4);
           if(up_down == 2)
           {
-            chunks[i][0] = (int) random(chunks[i-1][0],jump_height);
+            chunks[i][0] = (int) random(chunks[i-1][0],(chunks[i-1][0])+jump_height);
             chunk_min = false;
           }
           else if(up_down == 3)
           {
-            chunks[i][0] = (int) random(chunks[i-1][0],-jump_height);
+            chunks[i][0] = (int) random(chunks[i-1][0],(chunks[i-1][0])-jump_height);
             chunk_min = false;
           }
         } 
