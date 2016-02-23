@@ -1,4 +1,4 @@
-class Characters
+class Characters extends Terrain
 {
   int char_size;//In reference to the game characters not the datatype
   float a = 0; //used in jump vector
@@ -21,11 +21,17 @@ class Characters
     image(hero,pos.x,pos.y);
     if(!jumped)
     {
-      if(pos.y < height-char_size)
+     for(int i = 0; i < 299; i++)
+     {
+      if(pos.x > chunks[i][1]*scale && pos.x < chunks[i+1][1]*scale)
       {
-        pos.add(gravity);
-        //Placeholder Gravity until terrain object created
+        if(pos.y < (height-chunks[i][0])-char_size)
+        {
+          pos.add(gravity);
+          //Placeholder Gravity until terrain object created
+        }
       }
+     }
     }
     if(pos.y > 540)
     {

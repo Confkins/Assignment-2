@@ -2,6 +2,7 @@ class Terrain
 { 
   int[][] chunks = new int[300][2];
   boolean check = false;
+  int scale = 50;
   Terrain()
   {
     for(int i=0; i < 10; i++)
@@ -15,7 +16,7 @@ class Terrain
   }
   void ground()
   {
-    int scale = 50;
+
     /*
       The idea here is to seperate the ground into
       easy workable chunks so varied terrain is easier
