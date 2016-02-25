@@ -6,6 +6,7 @@ void setup()
   size(600,600);
     Terrain = new Terrain();
   Characters = new Characters();
+  Characters.setup();
   back = loadImage("Background.png");
 }
 PImage back;

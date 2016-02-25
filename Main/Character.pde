@@ -1,10 +1,10 @@
-class Characters extends Terrain
+class Characters
 {
   void setup()
   {
-    Terrain = new Terrain();
+    terrain = new Terrain();
   }
-  Terrain Terrain;
+  Terrain terrain;
   int grav_y; 
   int char_size;//In reference to the game characters not the datatype
   float a = 0; //used in jump vector
@@ -25,13 +25,13 @@ class Characters extends Terrain
     //println(pos.y);
     hero = loadImage("Soviethero.png");
     image(hero,pos.x,pos.y);
-    grav_y = Terrain.y_value();
+    grav_y = terrain.y_value();
+    
     if(pos.y +char_size < height - grav_y )
     {
       pos.add(gravity);
     }
     keyPressed();
-
   }
   void keyPressed()
   {

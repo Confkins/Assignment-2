@@ -6,6 +6,7 @@ class Terrain
   PVector movement;
   PVector move;
   int grav_y;
+  
   Terrain()
   {
     for(int i=0; i < 10; i++)
@@ -43,7 +44,6 @@ class Terrain
       {
         grav_y = chunks[i][0];
       }
-      println(grav_y);
     }
     keyPressed();
   }
@@ -115,11 +115,7 @@ class Terrain
   
   int y_value()
   {
-      int i = 0;
-      if( chunks[i][1]*scale+movement.x <= (width/2) && (chunks[i][1]*scale+movement.x) + scale >= (width/2))
-      {
-        grav_y = chunks[i][0];
-      }
-      i++;
+    println(grav_y);
+    return grav_y;
   }
-}//end clasa
+}//end class
