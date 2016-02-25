@@ -5,7 +5,6 @@ class Terrain
   int scale = 50;
   PVector movement;
   PVector move;
-  int grav_y;
   
   Terrain()
   {
@@ -20,6 +19,7 @@ class Terrain
     move = new PVector(20,0);
     movement = new PVector(0,0);
   }
+  
   void ground()
   {
     /*
@@ -29,6 +29,7 @@ class Terrain
       moving. It will hopefully be randomized in the finished
       version, but may have to be curtailed for playability.
     */
+    
     if(check == false)
     {
     randomization();  
@@ -44,9 +45,12 @@ class Terrain
       {
         grav_y = chunks[i][0];
       }
+
     }
+    
     keyPressed();
   }
+  
   void randomization()
   {
     int pit_edge;
@@ -67,20 +71,25 @@ class Terrain
         chunk_min = true;
       }
       else
-      {
+      {      
         pit_chance = (int) random(1,10);
+        //pit chance
         if(pit_chance == 5)
         {
           pit_edge = chunks[i-1][0];
+          
           for(int j = 0; j < 3; j++)
           {
             chunks[i][0] = -5;
             i++;
           }
+          
           chunks[i][0] = pit_edge;
           i++;
         }
+        //end pit chance
         chunklength = (int) random(1,4);
+        
         if(chunklength == 2)  
         {
           up_down = (int) random(1,6);
@@ -100,7 +109,19 @@ class Terrain
          chunks[i][0] = chunks[i-1][0];
         }
       }
+      //fixes random biases
+      if(chunks[i][0] < 0)
+      {
+        chunks[i][0] += jump_height;
+      }
+      else if(chunks[i][0] > 500)
+      {
+        chunks[i][0] -= jump_height;
+      }
+      else
+      {
       i++;
+      }
     }//end while
   }//end method
   
@@ -111,11 +132,10 @@ class Terrain
       movement.sub(move);
       key = 'q';
     }
-  }
-  
-  int y_value()
-  {
-    println(grav_y);
-    return grav_y;
+    if(key == 'a')
+    {
+      movement.add(move);
+      key = 'q';
+    }
   }
 }//end class

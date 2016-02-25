@@ -4,8 +4,8 @@ class Characters
   {
     terrain = new Terrain();
   }
+  
   Terrain terrain;
-  int grav_y; 
   int char_size;//In reference to the game characters not the datatype
   float a = 0; //used in jump vector
   PVector gravity;
@@ -13,6 +13,7 @@ class Characters
   PVector jump;
   Boolean jumped;
   PImage hero;
+  
   Characters()
   {
     char_size = 59;//It's a square, and helps to fix positioning
@@ -20,19 +21,19 @@ class Characters
     pos = new PVector (width/2-(char_size/2),height/2);
     jumped = false;
   }
+  
   void soviet_hero()
   {
-    //println(pos.y);
     hero = loadImage("Soviethero.png");
-    image(hero,pos.x,pos.y);
-    grav_y = terrain.y_value();
+    image(hero,pos.x,pos.y);  
     
     if(pos.y +char_size < height - grav_y )
     {
       pos.add(gravity);
-    }
+    }  
     keyPressed();
   }
+  
   void keyPressed()
   {
     jump = new PVector (0,(-sin(a))*5);

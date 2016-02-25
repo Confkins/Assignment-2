@@ -9,6 +9,7 @@ void setup()
   Characters.setup();
   back = loadImage("Background.png");
 }
+public static int grav_y;
 PImage back;
 Terrain Terrain;
 Characters Characters;
@@ -16,5 +17,6 @@ void draw()
 {
   background(back);
   Terrain.ground();
+  println(grav_y);    
   Characters.soviet_hero();
 }
