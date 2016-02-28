@@ -14,10 +14,12 @@ class Terrain
     }
     for(int i = 0; i < 300; i++)
     {
-      chunks[i][1] = i+1;
+      chunks[i][1] = i+1;//assigns values of 1-300 to array for ease of use
     }
-    move = new PVector(20,0);
+    
+    move = new PVector(20,0); 
     movement = new PVector(0,0);
+    
   }
   
   void ground()
@@ -41,7 +43,7 @@ class Terrain
       fill(0,0,255);
       rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],50,800);
       
-      if( chunks[i][1]*scale+movement.x <= (width/2) && (chunks[i][1]*scale+movement.x) + scale >= (width/2))
+      if(chunks[i][1]*scale+movement.x <= (width/2) && (chunks[i][1]*scale+movement.x) + scale >= (width/2))
       {
         grav_y = chunks[i][0];
       }
@@ -58,9 +60,7 @@ class Terrain
     int chunklength;
     int i = 10;
     int up_down;
-    int y_set;
-    int  old_y;
-    int jump_height = 50;
+    int jump_height = 60;
     boolean chunk_min = false;
     
     while(i < 300)
@@ -132,6 +132,7 @@ class Terrain
       movement.sub(move);
       key = 'q';
     }
+    
     if(key == 'a')
     {
       movement.add(move);
