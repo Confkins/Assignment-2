@@ -4,7 +4,7 @@
 void setup()
 {
   size(600,600);
-    Terrain = new Terrain();
+  Terrain = new Terrain();
   Characters = new Characters();
   Characters.setup();
   back = loadImage("Background.png");
