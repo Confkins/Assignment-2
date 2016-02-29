@@ -131,12 +131,14 @@ class Terrain
     {
       movement.sub(move);
       key = 'q';
+      left = false;
     }
     
     if(key == 'a')
     {
       movement.add(move);
       key = 'q';
+      left = true;
     }
   }
 }//end class
