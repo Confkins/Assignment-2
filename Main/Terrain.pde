@@ -18,8 +18,7 @@ class Terrain
     }
     
     move = new PVector(20,0); 
-    movement = new PVector(0,0);
-    
+    movement = new PVector(0,0); 
   }
   
   void ground()
@@ -37,8 +36,8 @@ class Terrain
     randomization();  
     check = true;
     }//So ground only generated once
-       
-    for(int i = 0; i < 300; i++)
+ 
+    for(int i = 0; i <= 300; i++)
     {
       fill(0,0,255);
       rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],50,800);
@@ -46,8 +45,35 @@ class Terrain
       if(chunks[i][1]*scale+movement.x <= (width/2) && (chunks[i][1]*scale+movement.x) + scale >= (width/2))
       {
         grav_y = chunks[i][0];
+        col_gravy = chunks[i+1][0];
       }
-
+      
+      if((chunks[i][1]*scale)+movement.x > (width/2) + 20 && (chunks[i][1]*scale)+movement.x < (width/2) + 40 )
+      {
+        println("1 happened");
+        if(col_gravy > grav_y)
+        {
+          collision = true;
+          println("2 happened");
+        }
+        else
+        {
+          collision = false;
+        }
+      }
+      if((chunks[i][1]*scale)+movement.x < (width/2) - 21 && (chunks[i][1]*scale)+movement.x > (width/2) - 41 )
+      {
+        println("3 happened");
+        if(col_gravy < grav_y)
+        {
+          coll_left = true;
+          println("4 happened");
+        }
+        else
+        {
+          coll_left = false;
+        }
+      }
     }
     
     keyPressed();
@@ -120,25 +146,30 @@ class Terrain
       }
       else
       {
-      i++;
+        i++;
       }
     }//end while
   }//end method
   
   void keyPressed()
   {
-    if(key == 'd')
+    if(!collision)
     {
-      movement.sub(move);
-      key = 'q';
-      left = false;
+      if(key == 'd')
+      {
+        movement.sub(move);
+        key = 'q';
+        left = false;
+      }
     }
-    
-    if(key == 'a')
+    if(!coll_left)
     {
-      movement.add(move);
-      key = 'q';
-      left = true;
+      if(key == 'a')
+      {
+        movement.add(move);
+        key = 'q';
+        left = true;
+      }
     }
   }
 }//end class

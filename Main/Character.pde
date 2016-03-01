@@ -60,6 +60,11 @@ class Characters
       jumping = false;
       j = 0;
     }
+    
+    if(pos.y > col_gravy)
+    {
+      collision = false;
+    }
   }
   
   void keyPressed()
@@ -69,6 +74,11 @@ class Characters
       if(key == 'w')
       {
         jumping = true;
+        if(pos.y < col_gravy)
+        {
+          collision = false;
+          coll_left = false;
+        }
       }
       key = 'l';
     }
