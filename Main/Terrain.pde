@@ -22,6 +22,7 @@ class Terrain
     
     move = new PVector(15,0); 
     movement = new PVector(0,0); 
+    char_size = 60;
   }
   
   void ground()
@@ -65,8 +66,10 @@ class Terrain
       }
       if((chunks[i][1]*scale)+movement.x < (width/2) - 10 && (chunks[i][1]*scale)+movement.x > (width/2) - 30 )
       {
-        if(left_col > grav_y && (height - pos.y - char_size) < left_col)
+                  println(height - pos.y - char_size);
+        if(left_col > grav_y && (height - pos.y -char_size) < left_col)
         {
+
           coll_left = true;
         }
         else
@@ -163,8 +166,8 @@ class Terrain
     //Are you or a loved one in a pit? If so, this is the method for you!
     if(grav_y < 0 && (height - pos.y - 59) < 0)
     {
-      pos.y = 400;
-      for(int i = 0; i < 10; i ++)
+      pos.y = 300;
+      for(int i = 0; i < 15; i ++)
       {
         movement.add(move);
       }
