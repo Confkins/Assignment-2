@@ -15,6 +15,7 @@ public static int grav_y;
 public static boolean collision = false;
 public static boolean coll_left = false;
 public static PVector pos; 
+//perhaps more elegant solutions could be found, but time constraints did not permit experimentation
 
 PImage back;
 Terrain Terrain;

@@ -5,6 +5,7 @@ class Terrain
   int scale = 70;
   int col_gravy;
   int left_col;
+  int char_size;
   PVector movement;
   PVector move;
   
@@ -41,7 +42,7 @@ class Terrain
  
     for(int i = 0; i <= 300; i++)
     {
-      fill(0,0,255);
+      fill(255,20,20);
       rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],scale,800);
       
       if(chunks[i][1]*scale+movement.x <= (width/2) && (chunks[i][1]*scale+movement.x) + scale >= (width/2))
@@ -53,9 +54,7 @@ class Terrain
       
       if((chunks[i][1]*scale)+movement.x > (width/2) + 10 && (chunks[i][1]*scale)+movement.x < (width/2) + 30 )
       {
-        println(col_gravy);
-        println(grav_y);
-        if(col_gravy > grav_y &&  (height - pos.y - 59) <= col_gravy)
+        if(col_gravy > grav_y &&  (height - pos.y - char_size) <= col_gravy)
         {
           collision = true;
         }
@@ -66,7 +65,7 @@ class Terrain
       }
       if((chunks[i][1]*scale)+movement.x < (width/2) - 10 && (chunks[i][1]*scale)+movement.x > (width/2) - 30 )
       {
-        if(left_col > grav_y && (height - pos.y - 59) < left_col)
+        if(left_col > grav_y && (height - pos.y - char_size) < left_col)
         {
           coll_left = true;
         }
@@ -76,8 +75,8 @@ class Terrain
         }
       }
     }
-    
     keyPressed();
+    in_a_pit();
   }
   
   void randomization()
@@ -158,6 +157,20 @@ class Terrain
       }
     }//end while
   }//end method
+  
+  void in_a_pit()
+  {
+    println(height -pos.y - 59);
+    //Are you or a loved one in a pit? If so, this is the method for you!
+    if(grav_y < 0 && (height - pos.y - 59) < 0)
+    {
+      pos.y = 100;
+      for(int i = 0; i < 5; i ++)
+      {
+        movement.add(move);
+      }
+    }
+  }
   
   void keyPressed()
   {
