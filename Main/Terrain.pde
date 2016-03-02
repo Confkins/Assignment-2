@@ -86,7 +86,6 @@ class Terrain
     if(death_counter == 3)
     {
       youre_dead();
-      death_counter = 0;
     }
   }
   
@@ -193,6 +192,7 @@ class Terrain
         key = 'q';
         left = false;
         moving = true;
+        death_counter = 0;
       }
     }
     if(!coll_left)
@@ -224,4 +224,3 @@ class Terrain
     }
   }
 }//end class
-
