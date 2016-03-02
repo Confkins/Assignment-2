@@ -160,12 +160,11 @@ class Terrain
   
   void in_a_pit()
   {
-    println(height -pos.y - 59);
     //Are you or a loved one in a pit? If so, this is the method for you!
     if(grav_y < 0 && (height - pos.y - 59) < 0)
     {
-      pos.y = 100;
-      for(int i = 0; i < 5; i ++)
+      pos.y = 400;
+      for(int i = 0; i < 10; i ++)
       {
         movement.add(move);
       }
