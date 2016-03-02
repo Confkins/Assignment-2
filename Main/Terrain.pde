@@ -82,6 +82,13 @@ class Terrain
   
   void randomization()
   {
+    /*
+    This method generates the randomised terrain
+    it is designed to always be navigable by the player
+    the level is limited to 300 seperate sections
+    but this could generate an infinite level without
+    any complications. It is my pride and joy :D
+    */
     int pit_edge;
     int pit_chance = 0;
     int chunklength;
@@ -122,12 +129,12 @@ class Terrain
           up_down = (int) random(1,6);
           if(up_down == 2 || up_down == 3 || up_down == 4)
           {
-            chunks[i][0] = (int) random(chunks[i-1][0],(chunks[i-1][0])+jump_height);
+            chunks[i][0] = (int) random(chunks[i-1][0],((chunks[i-1][0])+5)+jump_height);
             chunk_min = false;
           }
           else
           {
-            chunks[i][0] = (int) random((chunks[i-1][0])-jump_height,chunks[i-1][0]);
+            chunks[i][0] = (int) random(((chunks[i-1][0])+5)-jump_height,chunks[i-1][0]);
             chunk_min = false;
           }
         } 
