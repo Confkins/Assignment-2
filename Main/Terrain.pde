@@ -86,6 +86,7 @@ class Terrain
     if(death_counter == 3)
     {
       youre_dead();
+      death_counter = 0;
     }
   }
   
