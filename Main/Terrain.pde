@@ -6,6 +6,7 @@ class Terrain
   int col_gravy;
   int left_col;
   int char_size;
+  int death_counter;
   PVector movement;
   PVector move;
   
@@ -23,6 +24,7 @@ class Terrain
     move = new PVector(15,0); 
     movement = new PVector(0,0); 
     char_size = 60;
+    death_counter = 0;
   }
   
   void ground()
@@ -80,6 +82,10 @@ class Terrain
     }
     keyPressed();
     in_a_pit();
+    if(death_counter == 3)
+    {
+      youre_dead();
+    }
   }
   
   void randomization()
@@ -171,6 +177,7 @@ class Terrain
       {
         movement.add(move);
       }
+      death_counter++;
     }
   }
   
@@ -194,6 +201,15 @@ class Terrain
         left = true;
       }
     }
+  }
+  
+  void youre_dead()
+  {
+       rect(100,100,width-200,height-200);
+       fill(255,215,0);
+       textSize(20);
+       text("YOU'RE DEAD KOMRADE",width/2 - 75,240);
+       text("PRESS 'X' TO LEAVE",width/2 - 75,340);
   }
 }//end class
 
