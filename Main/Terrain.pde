@@ -2,7 +2,9 @@ class Terrain
 { 
   int[][] chunks = new int[320][2];
   boolean check = false;
-  int scale = 50;
+  int scale = 70;
+  int col_gravy;
+  int left_col;
   PVector movement;
   PVector move;
   
@@ -17,7 +19,7 @@ class Terrain
       chunks[i][1] = i+1;//assigns values of 1-300 to array for ease of use
     }
     
-    move = new PVector(20,0); 
+    move = new PVector(15,0); 
     movement = new PVector(0,0); 
   }
   
@@ -40,34 +42,33 @@ class Terrain
     for(int i = 0; i <= 300; i++)
     {
       fill(0,0,255);
-      rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],50,800);
+      rect((chunks[i][1]*scale)+movement.x,height-chunks[i][0],scale,800);
       
       if(chunks[i][1]*scale+movement.x <= (width/2) && (chunks[i][1]*scale+movement.x) + scale >= (width/2))
       {
         grav_y = chunks[i][0];
         col_gravy = chunks[i+1][0];
+        left_col = chunks[i-1][0];
       }
       
-      if((chunks[i][1]*scale)+movement.x > (width/2) + 20 && (chunks[i][1]*scale)+movement.x < (width/2) + 40 )
+      if((chunks[i][1]*scale)+movement.x > (width/2) + 10 && (chunks[i][1]*scale)+movement.x < (width/2) + 30 )
       {
-        println("1 happened");
-        if(col_gravy > grav_y)
+        println(col_gravy);
+        println(grav_y);
+        if(col_gravy > grav_y &&  (height - pos.y - 59) <= col_gravy)
         {
           collision = true;
-          println("2 happened");
         }
         else
         {
           collision = false;
         }
       }
-      if((chunks[i][1]*scale)+movement.x < (width/2) - 21 && (chunks[i][1]*scale)+movement.x > (width/2) - 41 )
+      if((chunks[i][1]*scale)+movement.x < (width/2) - 10 && (chunks[i][1]*scale)+movement.x > (width/2) - 30 )
       {
-        println("3 happened");
-        if(col_gravy < grav_y)
+        if(left_col > grav_y && (height - pos.y - 59) < left_col)
         {
           coll_left = true;
-          println("4 happened");
         }
         else
         {

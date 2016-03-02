@@ -14,7 +14,7 @@ public static boolean left;
 public static int grav_y;
 public static boolean collision = false;
 public static boolean coll_left = false;
-public static int col_gravy;
+public static PVector pos; 
 
 PImage back;
 Terrain Terrain;

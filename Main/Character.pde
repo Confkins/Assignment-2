@@ -10,7 +10,6 @@ class Characters
   int char_size;//In reference to the game characters not the datatype
   float a = 0; //used in jump vector
   PVector gravity;
-  PVector pos;
   PVector jump;
   Boolean jumping = false;
   PImage hero;
@@ -47,7 +46,7 @@ class Characters
       pos.sub(jump);
       j++;
     }
-   else
+    else
     {
       if(pos.y +char_size < height - grav_y)
       {
@@ -61,10 +60,6 @@ class Characters
       j = 0;
     }
     
-    if(pos.y > col_gravy)
-    {
-      collision = false;
-    }
   }
   
   void keyPressed()
@@ -74,11 +69,6 @@ class Characters
       if(key == 'w')
       {
         jumping = true;
-        if(pos.y < col_gravy)
-        {
-          collision = false;
-          coll_left = false;
-        }
       }
       key = 'l';
     }
