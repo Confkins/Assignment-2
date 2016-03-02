@@ -1,11 +1,5 @@
 class Characters
 {
-  void setup()
-  {
-    terrain = new Terrain();
-  }
-  
-  Terrain terrain;
   int j; //jump timer
   int char_size;//In reference to the game characters not the datatype
   float a = 0; //used in jump vector
