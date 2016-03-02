@@ -1,6 +1,7 @@
 class Characters
 {
   int j; //jump timer
+  int r;//run timer
   int char_size;//In reference to the game characters not the datatype
   float a = 0; //used in jump vector
   PVector gravity;
@@ -8,6 +9,10 @@ class Characters
   Boolean jumping = false;
   PImage hero;
   PImage heroleft;
+  PImage herojump;
+  PImage herojumpleft;
+  PImage herorun;
+  PImage herorunleft;
   
   Characters()
   {
@@ -20,14 +25,60 @@ class Characters
   {
     hero = loadImage("Soviethero.png");
     heroleft = loadImage("Heroleft.png");
+    herojump = loadImage("herojump.png");
+    herojumpleft = loadImage("herojumpleft.png");
+    herorun = loadImage("Sovietherorun1.png");
+    herorunleft = loadImage("Sovietrunleft.png");
     
     if(!left)
     {
-      image(hero,pos.x,pos.y);  
+      if(jumping)
+      {
+        image(herojump,pos.x,pos.y);
+      }
+      else
+      {
+        if(moving)
+        {
+          if(r<20)
+          { 
+            image(hero,pos.x,pos.y);  
+          }
+          else
+          {
+            image(herorun,pos.x,pos.y);
+          }
+        }
+        else
+        {
+          image(hero,pos.x,pos.y);
+        }
+      }
     }
     else
     {
-      image(heroleft,pos.x,pos.y);
+      if(jumping)
+      {
+        image(herojumpleft,pos.x,pos.y);
+      }
+      else
+      {
+        if(moving)
+        {
+          if(r < 20)
+          {
+            image(heroleft,pos.x,pos.y);  
+          }
+          else
+          {
+            image(herorunleft,pos.x,pos.y);
+          }
+        }
+        else
+        {
+          image(heroleft,pos.x,pos.y);
+        }
+      }
     }
     
     jump = new PVector (0,4);
@@ -53,7 +104,11 @@ class Characters
       jumping = false;
       j = 0;
     }
-    
+    if(r == 40)
+    {
+      r = 0;
+    }
+    r++;
   }
   
   void keyPressed()

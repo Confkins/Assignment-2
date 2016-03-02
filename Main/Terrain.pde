@@ -81,6 +81,7 @@ class Terrain
       }
     }
     keyPressed();
+    keyReleased();
     in_a_pit();
     if(death_counter == 3)
     {
@@ -190,6 +191,7 @@ class Terrain
         movement.sub(move);
         key = 'q';
         left = false;
+        moving = true;
       }
     }
     if(!coll_left)
@@ -199,6 +201,7 @@ class Terrain
         movement.add(move);
         key = 'q';
         left = true;
+        moving = true;
       }
     }
   }
@@ -208,8 +211,16 @@ class Terrain
        rect(100,100,width-200,height-200);
        fill(255,215,0);
        textSize(20);
-       text("YOU'RE DEAD KOMRADE",width/2 - 75,240);
-       text("PRESS 'X' TO LEAVE",width/2 - 75,340);
+       text("YOU'RE DEAD KOMRADE",width/2 - 100,240);
+       text("PRESS 'X' TO LEAVE",width/2 - 100,340);
+  }
+  
+  void keyReleased()
+  {
+    if(key == 'a'||key == 'd')
+    {
+      moving = false;
+    }
   }
 }//end class
 
